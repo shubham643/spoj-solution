@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+long long doit(long long n,char c,long long val)
+{
+	switch(c)
+	{
+		case '+': return n+val;
+		case '-': return n-val;
+		case '*': return n*val;
+		case '/': return n/val;
+	}
+}
+
+
+int main()
+{
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+		long long n,val;
+		scanf("%lld",&n);
+		char c;
+		scanf("%c%lld",&c,&val);
+		n=doit(n,c,val);
+		while(1)
+		{
+			scanf("%c",&c);
+			if(c=='=')
+				break;
+			scanf("%lld",&val);
+			n=doit(n,c,val);
+		}
+		printf("%lld\n",n);
+	}
+	return 0;
+}
